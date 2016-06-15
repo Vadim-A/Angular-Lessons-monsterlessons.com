@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular - monsterlessons</title>
+  <script src="scripts/angular.js"></script>
+  <script src="scripts.js"></script>
+  <style type="text/css">
+  .lessons {
+	border: solid 1px black;
+	padding: 3px;
+  }
+  </style>
+</head>
+<body>
+link: <a href="http://monsterlessons.com/project/categories/angularjs">monsterlessons.com</a>
+
+<!-- Lesson 1 -->
+<h4><a href="http://monsterlessons.com/project/lessons/hello-world-data-bindingh-v-angularjs">Lesson 1</a></h4>
+<!--div id ='lesson1' class='lessons' ng-app="app1"-->
+<div id ='lesson1' class='lessons'>
+	<div>
+		{{1 + 1}} 
+		<br>
+		{{"hello" + "world"}}
+		<br>
+		<input type="text" ng-model="hello"><br> <!--Пробелы обрезаются из переменной-->
+		<input type="text" ng-model="hello"><br>
+		{{hello}} <br>
+		{{hello + "world"}}
+	</div>
+</div>
+
+<h4><a href="http://monsterlessons.com/project/lessons/kontrolliery-v-angularjs">Lesson 2</a></h4>
+<!--div id ='lesson2' class='lessons' ng-app="app2"-->
+<div id ='lesson2' class='lessons'>
+	<div ng-controller='myCtrl'>
+		{{hello}}
+		<input type='text' ng-model='myBook'>
+		{{myBook}}
+	</div>
+</div>
+
+<h4><a href="http://monsterlessons.com/project/lessons/obmien-dannymi-miezhdu-kontrollierami-v-angularjs">Lesson 3</a></h4>
+<div id ='lesson3' class='lessons'>
+	<div ng-controller='firstCtrl'>
+		<input type='text' ng-model='myFactory.hello'>
+	</div>
+	<div ng-controller='secondCtrl'>
+		<input type='text' ng-model='myFactory.hello'>
+	</div>
+</div>
+
+<h4><a href="http://monsterlessons.com/project/lessons/opriedielieniie-mietoda-v-kontrollierie-angularjs">Lesson 4</a></h4>
+<div id ='lesson4' class='lessons'>
+	<div ng-controller='ctrl_l4'>
+		{{hello}} <br>
+		{{getBookmark()}}<br>
+		<button ng-click="setHello('Foo')">Foo</button>
+		<button ng-click="setHello('Bar')">Bar</button>
+		{{myFactory.hello()}}
+	</div>
+</div>
+	
+</body>
+</html>
