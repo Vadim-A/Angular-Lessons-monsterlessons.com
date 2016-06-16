@@ -1,0 +1,6 @@
+C:\Users\Vadim\Source\Repos\Angular-Lessons-monsterlessons.com\TypeScriptHTMLApp1\bin\TypeScriptHTMLApp1.dll.config
+C:\Users\Vadim\Source\Repos\Angular-Lessons-monsterlessons.com\TypeScriptHTMLApp1\bin\TypeScriptHTMLApp1.dll
+C:\Users\Vadim\Source\Repos\Angular-Lessons-monsterlessons.com\TypeScriptHTMLApp1\bin\TypeScriptHTMLApp1.pdb
+C:\Users\Vadim\Source\Repos\Angular-Lessons-monsterlessons.com\TypeScriptHTMLApp1\obj\Debug\TypeScriptHTMLApp1.csprojResolveAssemblyReference.cache
+C:\Users\Vadim\Source\Repos\Angular-Lessons-monsterlessons.com\TypeScriptHTMLApp1\obj\Debug\TypeScriptHTMLApp1.dll
+C:\Users\Vadim\Source\Repos\Angular-Lessons-monsterlessons.com\TypeScriptHTMLApp1\obj\Debug\TypeScriptHTMLApp1.pdb
