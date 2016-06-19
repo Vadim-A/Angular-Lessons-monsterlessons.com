@@ -63,16 +63,3 @@ app.controller('emberBookCtrl', function ($scope) {
     //    console.log('This is ember book');
     //};
 });
-
-//gh1
-//gh2
-//gh3
-
-//vs1
-//vs2
-//vs3
-
-//vs4
-
-//vs5
-1
