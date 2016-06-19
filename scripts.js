@@ -69,7 +69,14 @@ app.controller('emberBookCtrl', function ($scope) {
 //gh3
 
 //vs1
+<<<<<<< HEAD
 //gh
 //vs3
 
 //gh
+=======
+//vs2
+//vs3
+
+//vs4
+>>>>>>> origin/master
