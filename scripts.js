@@ -63,3 +63,23 @@ app.controller('emberBookCtrl', function ($scope) {
     //    console.log('This is ember book');
     //};
 });
+
+//lesson 6
+app.controller('mainCtrl6', function ($scope) {
+    this.myLesson = 'MainLesson';
+    this.addLesson = function () {
+        console.log('addLesson');
+    }
+    $scope.mainCtrl6 = this; // вместо as в шаблоне
+});
+
+app.controller('firstCtrl6', function ($scope) {
+    this.myLesson = 'FirstLesson';
+    $scope.myLesson = 'Lesson 1ctr';
+});
+
+app.controller('secondCtrl6', function ($scope) {
+    this.myLesson = 'SecondLesson';
+});
+
+
