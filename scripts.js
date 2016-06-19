@@ -71,3 +71,5 @@ app.controller('emberBookCtrl', function ($scope) {
 //vs1
 //vs2
 //vs3
+
+//vs4
