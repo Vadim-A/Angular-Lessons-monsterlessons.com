@@ -65,3 +65,4 @@ app.controller('emberBookCtrl', function ($scope) {
 });
 
 //gh1
+//gh2
