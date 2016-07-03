@@ -82,4 +82,49 @@ app.controller('secondCtrl6', function ($scope) {
     this.myLesson = 'SecondLesson';
 });
 
+//lesson 7
+app.directive('foo', function () {
+    return {
+        link: function (scope, element, attrs) {
+            console.log('this is my directive');
+            console.log('scope', scope);
+            console.log('element', element);
+            console.log('attrs', attrs);
+            element.text('This is my magic directive');
+            element.on('click', function () {
+                console.log('click');
+                if (element.text() === 'foo') {
+                    element.text('bar');
+                } else {
+                    element.text('foo');
+                }
+            });
+        }
+    };
+});
 
+//lesson 8
+app.controller('mainCtrl8', function ($scope) {
+    $scope.money = "244";
+    $scope.money1 = "1.22$";
+    $scope.money2 = "$2.33";
+    $scope.money3 = "4.33";
+});
+
+app.filter('moneyFilter', function () {
+    return function (str) {
+        console.log('str', str);
+        var lastChar = str.slice(-1);
+        var firstChar = str.slice(0, 1);
+
+        if (lastChar === '$') {
+            slicedPart = str.slice(0, str.length - 1);
+            return '$' + slicedPart;
+        } else if (firstChar === '$') {
+            return str;
+        } else {
+            return '$' + str;
+        }
+
+    }
+});
