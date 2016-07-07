@@ -144,3 +144,144 @@ app.directive('fooBar', function () { //NOTE: Нужно помнить, что директивы описы
         }
     }
 });
+
+//lesson 10
+app.directive('fooBar10', function () {
+    var bookmarks = [
+        {
+            id: 1,
+            name: 'AngularJS'
+        },
+        {
+            id: 2,
+            name: 'EmberJS'
+        },
+        {
+            id: 3,
+            name: 'ReactJS'
+        }
+    ];
+
+    return {
+        template: "<div ng-repeat='bookmark in myBookmarks'>{{bookmark.name}}</div>",
+        link: function (scope, element, attrs) {
+            console.log('fooBar10');
+            scope.name = "Sasha";
+            scope.myBookmarks = bookmarks;
+        }
+    };
+});
+
+//lesson 11
+app.controller('mainCtrl11', function ($scope) {
+    $scope.name = 'Bob';
+});
+
+app.directive('fooBar11', function () {
+    return {
+        restrict: 'E',
+        transclude: true,
+        template: 'This is my super directive<div ng-transclude><div>',
+        //template: 'This is my super directive 11',
+        link: function (scope, element, attrs, ctrl, transclude) {
+            console.log("This is my super directive 11")
+            transclude(scope, function (clone, scope) {
+                clone.text("__" + clone.text()); //Почему в итоге не применяется
+                console.log('!', clone, scope);
+                scope.name = scope.name + "__" // применяется и на template: 'This is my super directive<div ng-transclude><div>',
+                element.append(clone);
+                //element.append("<div ng-transclude><br>____" + clone.text() + "</div>");
+            });
+        }
+    };
+});
+
+//lesson 12
+app.directive('fooBar12', function () {
+    var bookmarks = [
+        {
+            id: 1,
+            name: 'AngularJS'
+        },
+        {
+            id: 2,
+            name: 'EmberJS'
+        },
+        {
+            id: 3,
+            name: 'ReactJS'
+        }
+    ];
+    return {
+        restrict: 'E',
+        transclude: true,
+        templateUrl: "bookmarks.html",
+        link: function (scope, element, attrs, ctrl, transclude) {
+            console.log('directive12');
+            scope.bookmarks = bookmarks;
+        }
+    };
+});
+
+//lesson 13 Кешируем шаблоны в AngularJS
+app.run(function ($templateCache) { //Функция которая выполняется сразу после инициализации ангулара
+    $templateCache.put('bookmarks13.html', "<div ng-repeat='bookmark in bookmarks'>{{bookmark.name}}</div>");
+});
+
+app.directive('fooBar13', function ($templateCache) {
+    var BOOKMARKS = [
+      {
+          id: 1,
+          name: "Spring"
+      },
+      {
+          id: 2,
+          name: "EmberJS"
+      },
+      {
+          id: 3,
+          name: "AngularJS"
+      }
+    ];
+
+    return {
+        restrict: "E",
+        templateUrl: 'bookmarks13.html',
+        link: function (scope, element, attr) {
+            scope.bookmarks = BOOKMARKS;
+            console.log($templateCache.info());
+        }
+    };
+});
+
+//lesson 14 Общение контроллера и директивы в AngularJS
+app.controller('mainCtrl14', function ($scope) {
+    console.log('mainCtrl14 scope', $scope);
+    $scope.posts = [
+      {
+          name: "This is post about cats"
+      },
+      {
+          name: "This is post about dogs"
+      }
+    ];
+
+    $scope.hello = 'Hello14'
+
+    $scope.getPosts = function () {
+        return $scope.posts;
+    };
+});
+
+
+app.directive('post14', function () {
+    return {
+        scope: false, // по умолчанию. scope наследуется из кантроллера (по умолчанию)
+        //scope: true, // scope в директиве свой собственный
+        template: "<div ng-repeat='post in getPosts()'>{{post.name}}</div>",
+        link: function (scope, element, attrs) {
+            console.log('scope 14', scope);
+            scope.hello = 'Hi14' // если scope: false то здесь hello заменится новым значением, если scope: true то это будет другая переменная, доступная в директиве
+        }
+    };
+});
